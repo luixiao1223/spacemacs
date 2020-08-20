@@ -13,7 +13,7 @@
   '(
     coffee-mode
     company
-    (company-tern :toggle (configuration-layer/package-usedp 'company))
+    ;;(company-tern :toggle (configuration-layer/package-usedp 'company))
     evil-matchit
     flycheck
     ggtags
@@ -42,13 +42,13 @@
 (defun javascript/post-init-company ()
   (spacemacs|add-company-hook js2-mode))
 
-(defun javascript/init-company-tern ()
-  (use-package company-tern
-    :if (and (configuration-layer/package-usedp 'company)
-             (configuration-layer/package-usedp 'tern))
-    :defer t
-    :init
-    (push 'company-tern company-backends-js2-mode)))
+;; (defun javascript/init-company-tern ()
+;;   (use-package company-tern
+;;     :if (and (configuration-layer/package-usedp 'company)
+;;              (configuration-layer/package-usedp 'tern))
+;;     :defer t
+;;     :init
+;;     (push 'company-tern company-backends-js2-mode)))
 
 (defun javascript/post-init-flycheck ()
   (dolist (mode '(coffee-mode js2-mode json-mode))
